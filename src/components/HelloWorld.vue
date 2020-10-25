@@ -36,7 +36,7 @@ export default {
 	},
 	data() {
 		return {
-			url: `//openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTrade?serviceKey=`,
+			url: `http://localhost:8080/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTrade?serviceKey=`,
 			LAWD_CD: '41465',
 			list: '',
 			theadFilters: ['건축년도', '법정동', '아파트', '년', '월', '일', '전용면적', '층', '거래금액'],
@@ -69,9 +69,7 @@ export default {
 	methods: {
 		async loadData() {
 			try {
-				let res = await axios.get(
-					`${this.url}Chpjh51ytkero7fneUW01Kxbk%2BMK0iBXuaAOrT4tPAh%2BkIwoQ7tqrkuyOzTd0O0pVM%2BL%2F3DSebLxqfMX5UcDKg%3D%3D&LAWD_CD=${this.LAWD_CD}&DEAL_YMD=${this.value}&`,
-				);
+				let res = await axios.get(`${this.url}${process.env['VUE_APP_KEY']}&LAWD_CD=${this.LAWD_CD}&DEAL_YMD=${this.value}&`);
 				this.list = res.data.response.body.items.item;
 			} catch (e) {
 				console.log(e);
