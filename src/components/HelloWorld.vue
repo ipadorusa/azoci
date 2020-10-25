@@ -67,18 +67,13 @@ export default {
 		};
 	},
 	methods: {
-		loadData() {
-			axios
-				.get(`${this.url}${process.env['VUE_APP_KEY']}&LAWD_CD=${this.LAWD_CD}&DEAL_YMD=${this.value}&`)
-				.then(res => {
-					this.renderTable(res.data.response.body.items.item);
-				})
-				.catch(() => {
-					console.log('------------error----------');
-				});
-		},
-		renderTable(data) {
-			this.list = data;
+		async loadData() {
+			try {
+				let res = await axios.get(`${this.url}${process.env['VUE_APP_KEY']}&LAWD_CD=${this.LAWD_CD}&DEAL_YMD=${this.value}&`);
+				this.list = res.data.response.body.items.item;
+			} catch (e) {
+				console.log(e);
+			}
 		},
 	},
 	computed: {
