@@ -69,7 +69,9 @@ export default {
 	methods: {
 		async loadData() {
 			try {
-				let res = await axios.get(`${this.url}${process.env['VUE_APP_KEY']}&LAWD_CD=${this.LAWD_CD}&DEAL_YMD=${this.value}&`);
+				let res = await axios.get(
+					`${this.url}Chpjh51ytkero7fneUW01Kxbk%2BMK0iBXuaAOrT4tPAh%2BkIwoQ7tqrkuyOzTd0O0pVM%2BL%2F3DSebLxqfMX5UcDKg%3D%3D&LAWD_CD=${this.LAWD_CD}&DEAL_YMD=${this.value}&`,
+				);
 				this.list = res.data.response.body.items.item;
 			} catch (e) {
 				console.log(e);
