@@ -28,15 +28,16 @@
 
 <script>
 import axios from 'axios';
+import data01 from '/src/assets/data/201901.json';
 export default {
 	name: 'HelloWorld',
 	created() {
 		this.value = this.defaultYearMonth;
-		this.loadData();
+		this.loadJson();
 	},
 	data() {
 		return {
-			url: `http://localhost:8080/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTrade?serviceKey=`,
+			url: 'http://localhost:8080/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTrade?serviceKey=',
 			LAWD_CD: '41465',
 			list: '',
 			theadFilters: ['건축년도', '법정동', '아파트', '년', '월', '일', '전용면적', '층', '거래금액'],
@@ -67,13 +68,22 @@ export default {
 		};
 	},
 	methods: {
-		async loadData() {
-			try {
-				let res = await axios.get(`${this.url}${process.env['VUE_APP_KEY']}&LAWD_CD=${this.LAWD_CD}&DEAL_YMD=${this.value}&`);
-				this.list = res.data.response.body.items.item;
-			} catch (e) {
-				console.log(e);
-			}
+		/*loadData() {
+			axios
+				.get(`${this.url}${process.env['VUE_APP_KEY']}&LAWD_CD=${this.LAWD_CD}&DEAL_YMD=${this.value}&`)
+				.then(res => {
+					this.renderTable(res.data.response.body.items.item);
+				})
+				.catch(() => {
+					console.log('------------error----------');
+				});
+		},
+		renderTable(data) {
+			this.list = data;
+		},*/
+		loadJson() {
+			let a = axios.get('/src/assets/data/201901.json').then(res => res);
+			console.log(a);
 		},
 	},
 	computed: {
