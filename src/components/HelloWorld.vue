@@ -9,7 +9,7 @@
 			<el-col :span="12">
 				<el-card class="box-card">
 					<el-select v-model="value" placeholder="Select" size="large">
-						<el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
+						<el-option v-for="item in optionsList" :key="item.value" :label="item.label" :value="item.value"> </el-option>
 					</el-select>
 				</el-card>
 			</el-col>
@@ -32,7 +32,16 @@ export default {
 	name: 'HelloWorld',
 	created() {
 		this.value = this.defaultYearMonth;
-		this.loadJson();
+		let years = ['2019', '2020'];
+		let month = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+
+		for (let i = 0, max = years.length; i < max; i++) {
+			for (let j = 0, max = month.length; j < max; j++) {
+				if (i === 1 && j === 10) break;
+				this.optionsList.push({ value: `${years[i]}${month[j]}`, label: `${years[i]}${month[j]}` });
+			}
+		}
+		this.loadData();
 	},
 	data() {
 		return {
@@ -63,6 +72,7 @@ export default {
 					label: '202006',
 				},
 			],
+			optionsList: [],
 			value: '',
 		};
 	},
@@ -77,12 +87,18 @@ export default {
 					console.log('------------error----------');
 				});
 		},
+		*/
+		async loadData() {
+			try {
+				let url = [`/data/${this.value}.json`];
+				let res = await axios.get(url).then(res => res.data);
+				this.renderTable(res);
+			} catch (e) {
+				console.log(e, 'eeeeeeeeeeee');
+			}
+		},
 		renderTable(data) {
 			this.list = data;
-		},*/
-		loadJson() {
-			let a = axios.get('/src/assets/data/201901.json').then(res => res);
-			console.log(a);
 		},
 	},
 	computed: {
