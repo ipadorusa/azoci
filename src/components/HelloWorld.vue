@@ -28,7 +28,6 @@
 
 <script>
 import axios from 'axios';
-import data01 from '/src/assets/data/201901.json';
 export default {
 	name: 'HelloWorld',
 	created() {
