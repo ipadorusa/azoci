@@ -17,8 +17,8 @@
 		<el-row>
 			<el-col :span="24">
 				<el-card class="box-card">
-					<el-table v-if="list.length > 0" :data="list.filter(x => !input || x['아파트'].includes(input))" style="width: 100%">
-						<el-table-column v-for="(item, idx) in theadFilters" :key="idx" :prop="item" :label="item" :class-name="`thead + ${idx}`"> </el-table-column>
+					<el-table v-if="list.length > 0" :data="list.filter(x => !input || x['아파트'].includes(input))" style="width: 100%" @cell-click="clickMove">
+						<el-table-column v-for="(item, idx) in theadFilters" :key="idx" :prop="item" :label="item"></el-table-column>
 					</el-table>
 				</el-card>
 			</el-col>
@@ -99,6 +99,12 @@ export default {
 		},
 		renderTable(data) {
 			this.list = data;
+		},
+		// eslint-disable-next-line no-unused-vars
+		clickMove(a, b, cell, event) {
+			if (b.label === '아파트') {
+				this.$router.push('DashBoard');
+			}
 		},
 	},
 	computed: {
