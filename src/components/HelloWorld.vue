@@ -103,6 +103,7 @@ export default {
 		// eslint-disable-next-line no-unused-vars
 		clickMove(a, b, cell, event) {
 			if (b.label === '아파트') {
+				sessionStorage.setItem('DashBoard', encodeURIComponent(a['아파트']));
 				this.$router.push('DashBoard');
 			}
 		},

@@ -8,16 +8,19 @@
 
 <script>
 import axios from 'axios';
+import { concat, filter } from 'lodash';
 
 export default {
 	name: 'DashBoard',
 	created() {
 		this.loadData();
+		this.filterVal = sessionStorage.getItem('DashBoard');
 	},
 	data() {
 		return {
 			list: [],
-			headList: ['아파트', '거래금액'],
+			headList: ['아파트', '거래금액', '년', '월', '일', '전용면적'],
+			filterVal: '',
 		};
 	},
 	methods: {
@@ -31,9 +34,12 @@ export default {
 		},
 		renderTable(data) {
 			for (let d of data) {
-				this.list = this.list.concat(d);
+				this.list = concat(this.list, d);
 			}
-			console.log(this.list);
+			this.filterTable(this.list);
+		},
+		filterTable(data) {
+			this.list = filter(data, { 아파트: decodeURIComponent(this.filterVal) });
 		},
 	},
 };
