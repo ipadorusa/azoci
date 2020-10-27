@@ -33,3 +33,48 @@ getLoad().then(e => {
 const dataBuffer = fs.readFileSync('202010.json')
 const dataJSON = dataBuffer.toString();
 console.log(dataJSON) */
+
+/*
+function readFromFile(file) {
+    return new Promise((resolve, reject) => {
+        fs.readFile(file, function (err, data) {
+            if (err) {
+                console.log(err);
+                reject(err);
+            }
+            else {
+                resolve(JSON.parse(data));
+            }
+        });
+    });
+}
+
+const promises = [
+    readFromFile('201901.json'),
+    readFromFile('201902.json'),
+    readFromFile('201903.json'),
+    readFromFile('201904.json'),
+    readFromFile('201905.json'),
+    readFromFile('201906.json'),
+    readFromFile('201907.json'),
+    readFromFile('201908.json'),
+    readFromFile('201909.json'),
+    readFromFile('201910.json'),
+    readFromFile('201911.json'),
+    readFromFile('201912.json'),
+    readFromFile('202001.json'),
+    readFromFile('202002.json'),
+    readFromFile('202003.json'),
+    readFromFile('202004.json'),
+    readFromFile('202005.json'),
+    readFromFile('202006.json'),
+    readFromFile('202007.json'),
+    readFromFile('202008.json'),
+    readFromFile('202009.json'),
+    readFromFile('202010.json'),
+]
+Promise.all(promises).then((values) => {
+    let data = JSON.stringify(values).replace(/(\s*)/g,'');
+    fs.writeFileSync(`20202019.json`, data)
+})
+ */
