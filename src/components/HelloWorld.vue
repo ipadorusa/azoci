@@ -48,7 +48,7 @@ export default {
 			url: 'http://localhost:8080/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTrade?serviceKey=',
 			LAWD_CD: '41465',
 			list: '',
-			theadFilters: ['건축년도', '법정동', '아파트', '년', '월', '일', '전용면적', '층', '거래금액'],
+			theadFilters: ['건축년도', /*'법정동', */ '아파트', '년', /*'월', '일', */ '전용면적', '층', '거래금액'],
 			input: '',
 			options: [
 				{
