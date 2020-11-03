@@ -26,7 +26,7 @@ export default {
 	methods: {
 		async loadData() {
 			try {
-				let res = await axios.get(`/data/20202019.json`).then(res => res.data);
+				let res = await axios.get(`/data/year/41465/20202019.json`).then(res => res.data);
 				this.renderTable(res);
 			} catch (e) {
 				console.log(e, 'eeeeeeeeeeee');
