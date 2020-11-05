@@ -37,7 +37,7 @@ export default {
 
 		for (let i = 0, max = years.length; i < max; i++) {
 			for (let j = 0, max = month.length; j < max; j++) {
-				if (i === 1 && j === 10) break;
+				if (i === 1 && j === 11) break;
 				this.optionsList.push({ value: `${years[i]}${month[j]}`, label: `${years[i]}${month[j]}` });
 			}
 		}
@@ -90,7 +90,7 @@ export default {
 		*/
 		async loadData() {
 			try {
-				let url = [`/data/${this.value}.json`];
+				let url = [`/data/41465/${this.value}.json`];
 				let res = await axios.get(url).then(res => res.data);
 				this.renderTable(res);
 			} catch (e) {

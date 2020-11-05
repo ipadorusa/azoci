@@ -20,7 +20,7 @@ const mon = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '
 for (let i = 0, max = 12; i < max; i++) {
 	getLoad(`2019${mon[i]}`);
 }
-for (let i = 0, max = 10; i < max; i++) {
+for (let i = 0, max = 11; i < max; i++) {
 	getLoad(`2020${mon[i]}`);
 }
 
@@ -73,7 +73,6 @@ let promises2 = [];
 let arrayLocalCodes = [LAWD_CD, LAWD_CD2];
 let files = fs.readdirSync(`./public/data/${arrayLocalCodes[0]}`);
 let files2 = fs.readdirSync(`./public/data/${arrayLocalCodes[1]}`);
-console.log('files', files, files2);
 
 files.forEach(file => {
 	promises.push(readFromFile(`./public/data/${arrayLocalCodes[0]}/${file}`));
