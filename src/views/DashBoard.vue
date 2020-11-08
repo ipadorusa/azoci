@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<el-table :key="1" :data="list" style="width: 100%">
+		<el-table :key="1" :data="list" :default-sort="{ prop: '건축년도', order: 'descending' }" style="width: 100%">
 			<el-table-column v-for="(head, idx) in headList" :key="idx" :prop="head" :label="head"></el-table-column>
 		</el-table>
 	</div>

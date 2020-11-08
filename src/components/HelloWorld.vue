@@ -21,7 +21,13 @@
 		<el-row>
 			<el-col :span="24">
 				<el-card class="box-card">
-					<el-table v-if="list.length > 0" :data="list.filter(x => !input || x['아파트'].includes(input))" style="width: 100%" @cell-click="clickMove">
+					<el-table
+						v-if="list.length > 0"
+						:default-sort="{ prop: '건축년도', order: 'descending' }"
+						:data="list.filter(x => !input || x['아파트'].includes(input))"
+						style="width: 100%"
+						@cell-click="clickMove"
+					>
 						<el-table-column v-for="(item, idx) in theadFilters" :key="idx" :prop="item" :label="item"></el-table-column>
 					</el-table>
 				</el-card>
