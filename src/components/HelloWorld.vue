@@ -75,7 +75,7 @@ export default {
 		clickMove(a, b) {
 			if (b.label === '아파트') {
 				sessionStorage.setItem('DashBoard', encodeURIComponent(a['아파트']));
-				this.$router.push('DashBoard');
+				this.$router.push({ name: 'DashBoard', params: { localCode: `${this.LAWD_CD}` } });
 			}
 		},
 		changeLocal(localCode) {

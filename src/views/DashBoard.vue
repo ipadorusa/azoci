@@ -13,20 +13,20 @@ import { concat, filter } from 'lodash';
 export default {
 	name: 'DashBoard',
 	created() {
-		this.loadData();
+		this.loadData(this.$route.params.localCode);
 		this.filterVal = sessionStorage.getItem('DashBoard');
 	},
 	data() {
 		return {
 			list: [],
-			headList: ['아파트', '거래금액', '년', '월', '일', '전용면적'],
+			headList: ['건축년도', '법정동', '아파트', '년', '월', '일', '전용면적', '층', '거래금액'],
 			filterVal: '',
 		};
 	},
 	methods: {
-		async loadData() {
+		async loadData(localCode) {
 			try {
-				let res = await axios.get(`/data/year/41465/20202019.json`).then(res => res.data);
+				let res = await axios.get(`/year/${localCode}/20202019.json`).then(res => res.data);
 				this.renderTable(res);
 			} catch (e) {
 				console.log(e, 'eeeeeeeeeeee');
