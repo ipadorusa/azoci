@@ -11,6 +11,10 @@
 					<el-select v-model="value" placeholder="Select" size="large">
 						<el-option v-for="item in optionsList" :key="item.value" :label="item.label" :value="item.value"> </el-option>
 					</el-select>
+					<el-button-group>
+						<el-button type="primary" @click="changeLocal('수지구')">수지구</el-button>
+						<el-button type="primary" @click="changeLocal('기흥구')">기흥구</el-button>
+					</el-button-group>
 				</el-card>
 			</el-col>
 		</el-row>
@@ -48,49 +52,17 @@ export default {
 			url: 'http://localhost:8080/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTrade?serviceKey=',
 			LAWD_CD: '41465',
 			list: '',
-			theadFilters: [/*'건축년도', '법정동', */ '아파트', /*'년', '월', '일', */ '전용면적', '층', '거래금액'],
+			theadFilters: ['건축년도', '법정동', '아파트', '년', '월', '일', '전용면적', '층', '거래금액'],
 			input: '',
-			options: [
-				{
-					value: '202010',
-					label: '202010',
-				},
-				{
-					value: '202009',
-					label: '202009',
-				},
-				{
-					value: '202008',
-					label: '202008',
-				},
-				{
-					value: '202007',
-					label: '202007',
-				},
-				{
-					value: '202006',
-					label: '202006',
-				},
-			],
+			options: [],
 			optionsList: [],
 			value: '',
 		};
 	},
 	methods: {
-		/*loadData() {
-			axios
-				.get(`${this.url}${process.env['VUE_APP_KEY']}&LAWD_CD=${this.LAWD_CD}&DEAL_YMD=${this.value}&`)
-				.then(res => {
-					this.renderTable(res.data.response.body.items.item);
-				})
-				.catch(() => {
-					console.log('------------error----------');
-				});
-		},
-		*/
 		async loadData() {
 			try {
-				let url = [`/data/41465/${this.value}.json`];
+				let url = [`/data/${this.LAWD_CD}/${this.value}.json`];
 				let res = await axios.get(url).then(res => res.data);
 				this.renderTable(res);
 			} catch (e) {
@@ -100,11 +72,19 @@ export default {
 		renderTable(data) {
 			this.list = data;
 		},
-		// eslint-disable-next-line no-unused-vars
-		clickMove(a, b, cell, event) {
+		clickMove(a, b) {
 			if (b.label === '아파트') {
 				sessionStorage.setItem('DashBoard', encodeURIComponent(a['아파트']));
 				this.$router.push('DashBoard');
+			}
+		},
+		changeLocal(localCode) {
+			switch (localCode) {
+				case '수지구':
+					this.LAWD_CD = '41465';
+					break;
+				default:
+					this.LAWD_CD = '41463';
 			}
 		},
 	},
