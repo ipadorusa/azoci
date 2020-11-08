@@ -82,9 +82,11 @@ export default {
 			switch (localCode) {
 				case '수지구':
 					this.LAWD_CD = '41465';
+					this.loadData();
 					break;
 				default:
 					this.LAWD_CD = '41463';
+					this.loadData();
 			}
 		},
 	},
