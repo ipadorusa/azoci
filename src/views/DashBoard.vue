@@ -29,7 +29,7 @@ export default {
 				let res = await axios.get(`/year/${localCode}/20202019.json`).then(res => res.data);
 				this.renderTable(res);
 			} catch (e) {
-				console.log(e, 'eeeeeeeeeeee');
+				alert(e);
 			}
 		},
 		renderTable(data) {

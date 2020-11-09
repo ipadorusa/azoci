@@ -1,4 +1,4 @@
-const fs = require('fs');
+let fs = require('fs');
 const filter = require('lodash/filter');
 
 function readFromFile(file) {
@@ -24,10 +24,10 @@ function sol(arr) {
 async function getList(res) {
 	let data = await res;
 	let filterData = filter(data.flat(), { 년: 2020, 아파트: '영통로효성해링턴플레이스1차', 전용면적: 59.963 });
-	let filterData2 = filter(filterData, o => o['월'] > 1);
+	//let filterData2 = filter(filterData, o => o['월'] > 1);
 	let filteList = [];
 	for (let item of filterData) {
-		filteList.push(item['거래금액'].replace(/\,/g, ''));
+		filteList.push(item['거래금액'].replace(/,/g, ''));
 	}
-	console.log(sol(filteList));
+	return sol(filteList);
 }

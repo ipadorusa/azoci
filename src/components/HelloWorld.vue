@@ -72,7 +72,7 @@ export default {
 				let res = await axios.get(url).then(res => res.data);
 				this.renderTable(res);
 			} catch (e) {
-				console.log(e, 'eeeeeeeeeeee');
+				alert(e);
 			}
 		},
 		renderTable(data) {
