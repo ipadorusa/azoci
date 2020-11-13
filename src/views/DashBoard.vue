@@ -21,6 +21,7 @@ export default {
 			list: [],
 			headList: ['건축년도', '법정동', '아파트', '년', '월', '일', '전용면적', '층', '거래금액'],
 			filterVal: '',
+			loading: true,
 		};
 	},
 	methods: {
