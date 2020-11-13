@@ -12,7 +12,7 @@ import { filter } from 'lodash';
 
 export default {
 	name: 'DashBoard',
-	created() {
+	beforeMount() {
 		this.loadData(this.$route.params.localCode);
 		this.filterVal = sessionStorage.getItem('DashBoard');
 	},
@@ -27,10 +27,8 @@ export default {
 	methods: {
 		async loadData(localCode) {
 			try {
-				console.time('response in');
 				let res = await axios.get(`/year/${localCode}/20202019.json`).then(res => res.data);
 				this.renderTable(res.flat());
-				console.timeEnd('response in');
 			} catch (e) {
 				alert(e);
 			}
