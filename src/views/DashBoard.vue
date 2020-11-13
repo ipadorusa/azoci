@@ -8,7 +8,7 @@
 
 <script>
 import axios from 'axios';
-import { concat, filter } from 'lodash';
+import { filter } from 'lodash';
 
 export default {
 	name: 'DashBoard',
@@ -34,13 +34,7 @@ export default {
 			}
 		},
 		renderTable(data) {
-			for (let d of data) {
-				this.list = concat(this.list, d);
-			}
-			this.filterTable(this.list);
-		},
-		filterTable(data) {
-			this.list = filter(data, { 아파트: decodeURIComponent(this.filterVal) });
+			this.list = filter(data.flat(), { 아파트: decodeURIComponent(this.filterVal) });
 		},
 	},
 };
