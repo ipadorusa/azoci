@@ -27,14 +27,16 @@ export default {
 	methods: {
 		async loadData(localCode) {
 			try {
+				console.time('response in');
 				let res = await axios.get(`/year/${localCode}/20202019.json`).then(res => res.data);
-				this.renderTable(res);
+				this.renderTable(res.flat());
+				console.timeEnd('response in');
 			} catch (e) {
 				alert(e);
 			}
 		},
 		renderTable(data) {
-			this.list = filter(data.flat(), { 아파트: decodeURIComponent(this.filterVal) });
+			this.list = filter(data, { 아파트: decodeURIComponent(this.filterVal) });
 		},
 	},
 };
