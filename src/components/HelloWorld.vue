@@ -71,9 +71,21 @@ export default {
 				let url = [`/data/${this.LAWD_CD}/${this.value}.json`];
 				let res = await axios.get(url).then(res => res.data);
 				this.renderTable(res);
+				this.loadJson(this.LAWD_CD);
 			} catch (e) {
 				alert(e);
 			}
+		},
+		async loadJson(localCode) {
+			try {
+				let res = await axios.get(`/year/${localCode}/20202019.json`).then(res => res.data);
+				this.setData(res.flat());
+			} catch (e) {
+				alert(e);
+			}
+		},
+		setData(res) {
+			this.$store.dispatch('setData', res);
 		},
 		renderTable(data) {
 			this.list = data;
@@ -89,10 +101,12 @@ export default {
 				case '수지구':
 					this.LAWD_CD = '41465';
 					this.loadData();
+					this.loadJson(this.LAWD_CD);
 					break;
 				default:
 					this.LAWD_CD = '41463';
 					this.loadData();
+					this.loadJson(this.LAWD_CD);
 			}
 		},
 	},

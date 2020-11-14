@@ -1,19 +1,19 @@
 <template>
 	<div>
-		<el-table :key="1" :data="list" :default-sort="{ prop: '건축년도', order: 'descending' }" style="width: 100%">
+		<el-table :key="1" :data="filterGetData(this.filterVal)" :default-sort="{ prop: '건축년도', order: 'descending' }" style="width: 100%">
 			<el-table-column v-for="(head, idx) in headList" :key="idx" :prop="head" :label="head"></el-table-column>
 		</el-table>
 	</div>
 </template>
 
 <script>
-import axios from 'axios';
+//import axios from 'axios';
+import { mapGetters } from 'vuex';
 import { filter } from 'lodash';
 
 export default {
 	name: 'DashBoard',
-	beforeMount() {
-		this.loadData(this.$route.params.localCode);
+	created() {
 		this.filterVal = sessionStorage.getItem('DashBoard');
 	},
 	data() {
@@ -25,6 +25,7 @@ export default {
 		};
 	},
 	methods: {
+		/*
 		async loadData(localCode) {
 			try {
 				let res = await axios.get(`/year/${localCode}/20202019.json`).then(res => res.data);
@@ -33,9 +34,14 @@ export default {
 				alert(e);
 			}
 		},
+		*/
+
 		renderTable(data) {
 			this.list = filter(data, { 아파트: decodeURIComponent(this.filterVal) });
 		},
+	},
+	computed: {
+		...mapGetters(['filterGetData']),
 	},
 };
 </script>
