@@ -23,7 +23,7 @@
 				<el-card class="box-card">
 					<el-table
 						v-if="list.length > 0"
-						:default-sort="{ prop: '건축년도', order: 'descending' }"
+						:default-sort="{ prop: '일', order: 'descending' }"
 						:data="list.filter(x => !input || x['아파트'].includes(input))"
 						style="width: 100%"
 						@cell-click="clickMove"
@@ -55,7 +55,6 @@ export default {
 	},
 	data() {
 		return {
-			url: 'http://localhost:8080/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTrade?serviceKey=',
 			LAWD_CD: '41465',
 			list: '',
 			theadFilters: ['건축년도', '법정동', '아파트', '년', '월', '일', '전용면적', '층', '거래금액'],
