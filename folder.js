@@ -13,7 +13,7 @@ function readFromFile(file) {
 		});
 	});
 }
-const url = './public/year/41463/20202019.json';
+const url = './public/year/41465/20202019.json';
 
 readFromFile(url).then(res => getList(res));
 
@@ -23,11 +23,17 @@ function sol(arr) {
 
 async function getList(res) {
 	let data = await res;
-	let filterData = filter(data.flat(), { 년: 2020, 아파트: '영통로효성해링턴플레이스1차', 전용면적: 59.963 });
-	//let filterData2 = filter(filterData, o => o['월'] > 1);
+	let filterData = filter(data.flat(), { 년: 2020, 아파트: '동성1차', 전용면적: 84.97 });
+	let filterData2 = filter(filterData, o => o['월'] > 1);
 	let filteList = [];
-	for (let item of filterData) {
-		filteList.push(item['거래금액'].replace(/,/g, ''));
+	let count = {};
+	for (let item of filterData2) {
+		filteList.push(item['층']);
 	}
+	filteList.forEach(x => {
+		count[x] = (count[x] || 0) + 1;
+	});
+
+	console.log(sol(filteList), count);
 	return sol(filteList);
 }
