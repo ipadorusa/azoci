@@ -21,7 +21,7 @@ for (let i = 0, max = 12; i < max; i++) {
 	getLoad(`2019${mon[i]}`, LAWD_CD);
 	getLoad(`2019${mon[i]}`, LAWD_CD2);
 }
-for (let i = 0, max = 11; i < max; i++) {
+for (let i = 0, max = 12; i < max; i++) {
 	getLoad(`2020${mon[i]}`, LAWD_CD);
 	getLoad(`2020${mon[i]}`, LAWD_CD2);
 }
