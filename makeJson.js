@@ -53,6 +53,7 @@ files2.forEach(file => {
 });
 
 Promise.all(promises).then(values => {
+	console.log('values');
 	let data = JSON.stringify(values).replace(/(\s*)/g, '');
 	fs.writeFileSync(`./public/year/${LAWD_CD}/20202019.json`, data);
 });

@@ -47,7 +47,7 @@ export default {
 
 		for (let i = 0, max = years.length; i < max; i++) {
 			for (let j = 0, max = month.length; j < max; j++) {
-				if (i === 1 && j === 11) break;
+				if (i === 1 && j === 12) break;
 				this.optionsList.push({ value: `${years[i]}${month[j]}`, label: `${years[i]}${month[j]}` });
 			}
 		}
@@ -72,7 +72,7 @@ export default {
 				this.renderTable(res);
 				this.loadJson(this.LAWD_CD);
 			} catch (e) {
-				alert(e);
+				this.value = this.defaultYearMonth - 1;
 			}
 		},
 		async loadJson(localCode) {
