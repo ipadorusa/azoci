@@ -36,4 +36,4 @@ jobs:
       uses: './'
       with:
         github_token: '5b282ab65a77f92878c1dc6ef78087fa11d2e2b4'
-        branch: '${{ github.ref }}'
+        branch: 'main'
