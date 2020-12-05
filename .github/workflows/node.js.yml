@@ -31,9 +31,3 @@ jobs:
       run: yarn install
     - name: Run Build
       run: yarn build
-    - uses: actions/checkout@master
-    - name: Verify action syntax 
-      uses: './'
-      with:
-        github_token: '5b282ab65a77f92878c1dc6ef78087fa11d2e2b4'
-        branch: 'main'
