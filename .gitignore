@@ -1,8 +1,8 @@
 .DS_Store
 node_modules
 /dist
-/public/year/*.*
-/public/data/*.*
+/public/year/*.json
+/public/data/*.json
 # local env files
 .env.local
 .env.*.local
