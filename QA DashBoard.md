@@ -2,7 +2,7 @@
 
 
 
-> 이 글은 2020년 UI 개발 1팀이 KPI로 진행된 프로젝트를 정리 한 글입니다.
+> 이 글은 2020년 UI 개발 1팀이 KPI로 진행된 프로젝트를 정리 한 글입니다. (Vue.js, Element-Ui, Echart, Google Api, Google Sheet App Script)
 >
 > 표준화된 QA시트를 통해 데이터를 수집하고 시각화를 하며 된 내용을 통해 반복되는 이슈에 대해서 프로젝트 품질과 코드의 개선을 진행,
 >
@@ -139,6 +139,8 @@
 
 ​	세부 진행 하면서 중점화한 목표, 러닝커브, 타 부서와 협의, 데이터 시각화에 대해서 이야기 하겠습니다.
 
+
+
 - 목표
 
   - Simple하게 만들자. 활성화 된다면 더 develop하자.
@@ -182,8 +184,8 @@
 
 ​	미 구현 된 잔여 기능 및 앞으로 방향
 
-1.  과거 데이터에 대한 누적 데이터로 볼수 있는 데이터화
-2.  반복되는 단어나 이슈에 대한 데이터 수집 및 리스트화
+1.  데이터 누적화 (현재는 실시간 단일 데이터) => 과거 데이터 누적으로 비교 가능하게 개발
+2.  반복되는 이슈 자동화
 
 
 
@@ -191,8 +193,46 @@
 
 
 
+### Step 05 (산출물 결과)
 
 
-### Step 05 (회고)
 
-​	
+##### 로그인, 시트 조회 단계
+
+- 구글 G-SUIT 로그인
+- 시트 아이디 조회, 시트별 선택 가능하게 표현
+- 최근 본 리스트(로컬 스토리지 저장)
+
+![로그인, 시트 조회](//www.saraminimage.co.kr/sri/qadashboard/screen04.PNG)
+
+
+
+##### Dashboard(프로젝트, 분류별, TC, QA 결함)
+
+- QA진행중인 프로젝트 내 상황별 , 분류별, TC, QA 표기
+
+![프로젝트, 분류별, TC, QA 결함](//www.saraminimage.co.kr/sri/qadashboard/screen01.PNG)
+
+
+
+##### 테스터, 담당자 QA 현황
+
+- 테스터, 담당자 별 결함 현황 리스트 + Pie Chart + Bar Chart 로 전체 및 개별로 볼수 있게 표기
+
+![테스터,담당자 QA현황](//www.saraminimage.co.kr/sri/qadashboard/screen02.PNG)
+
+
+
+##### 테스터 TC현황
+
+- TC 전체 리스트와 X포함된 데이터만 볼수 있게 기능화 함
+
+![TC 현황](//www.saraminimage.co.kr/sri/qadashboard/screen03.PNG)
+
+
+
+##### 주요 이슈 현황
+
+- QA 이슈 중 공유 되거나 반복된 이슈 정리 리스트화 (자동화 X)
+
+![QA 반복 이슈 현황](//www.saraminimage.co.kr/sri/qadashboard/screen05.PNG)
