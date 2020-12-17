@@ -200,7 +200,7 @@
 - 시트 아이디 조회, 시트별 선택 가능하게 표현
 - 최근 본 리스트(로컬 스토리지 저장)
 
-![로그인, 시트 조회](//www.saraminimage.co.kr/sri/qadashboard/screen04.PNG)
+![로그인, 시트 조회](http://www.saraminimage.co.kr/sri/qadashboard/screen04.PNG)
 
 
 
@@ -208,7 +208,7 @@
 
 - QA진행중인 프로젝트 내 상황별 , 분류별, TC, QA 표기
 
-![프로젝트, 분류별, TC, QA 결함](//www.saraminimage.co.kr/sri/qadashboard/screen01.PNG)
+![프로젝트, 분류별, TC, QA 결함](http://www.saraminimage.co.kr/sri/qadashboard/screen01.PNG)
 
 
 
@@ -216,7 +216,7 @@
 
 - 테스터, 담당자 별 결함 현황 리스트 + Pie Chart + Bar Chart 로 전체 및 개별로 볼수 있게 표기
 
-![테스터,담당자 QA현황](//www.saraminimage.co.kr/sri/qadashboard/screen02.PNG)
+![테스터,담당자 QA현황](http://www.saraminimage.co.kr/sri/qadashboard/screen02.PNG)
 
 
 
@@ -224,7 +224,7 @@
 
 - TC 전체 리스트와 X포함된 데이터만 볼수 있게 기능화 함
 
-![TC 현황](//www.saraminimage.co.kr/sri/qadashboard/screen03.PNG)
+![TC 현황](http://www.saraminimage.co.kr/sri/qadashboard/screen03.PNG)
 
 
 
@@ -232,4 +232,4 @@
 
 - QA 이슈 중 공유 되거나 반복된 이슈 정리 리스트화 (자동화 X)
 
-![QA 반복 이슈 현황](//www.saraminimage.co.kr/sri/qadashboard/screen05.PNG)
+![QA 반복 이슈 현황](http://www.saraminimage.co.kr/sri/qadashboard/screen05.PNG)
